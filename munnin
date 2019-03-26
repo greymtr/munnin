@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#munnin is a basic time tracker
+#munnin
+
+#   LOG FILE TEMPLATE
+#     start:time-end:time | category | details
+#       Example :	
+#     21:05-22:30 | WORK | set up git repo
+
+cd logs
+
+for i in $( ls *.log )
+do
+  process_log "$i"
+done
+
+process_log()
+{
+  log=$1
+  
+  starttime=$( echo $log | cut -f1 -d"|" | cut -f1 -f"-" )
+  endtime=$( echo $log | cut -f1 -d"|" | cut -f2 -f"-" )
+
+}
