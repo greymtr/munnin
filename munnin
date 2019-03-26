@@ -21,5 +21,9 @@ process_log()
   
   starttime=$( echo $log | cut -f1 -d"|" | cut -f1 -f"-" )
   endtime=$( echo $log | cut -f1 -d"|" | cut -f2 -f"-" )
+  category=$( echo $log | cut -f2 -d"|" )
+  details=$( echo $log | cut =f3 -d"|" )
+  
+  duration=$( duration $starttime $endtime )
 
 }
